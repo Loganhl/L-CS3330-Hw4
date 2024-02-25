@@ -65,8 +65,6 @@ public class VehicleManager {
                 StartMechanism startType = StartMechanism.valueOf(parts[10].toUpperCase());
                 double gasTankCapacity = Double.parseDouble(parts[11]); // Assuming it's part of input
 
-                //Enum needs to go here
-                //Genre genre = Genre.valueOf(parts[4].toUpperCase());
 
                 switch (type) {
                     case "SUV":
@@ -96,7 +94,7 @@ public class VehicleManager {
 		
 	}
 	
-	public void displayAllCarInformation() {
+	public void displayAllCarInformation(double distance, double fuelPrice) {
 		boolean carFound = false;
 		
 		System.out.println("Car information: ");
@@ -104,9 +102,10 @@ public class VehicleManager {
 			if(vehicle instanceof Car) {
 				Car car = (Car) vehicle;
 				System.out.println(car.toString());
-                System.out.println("Maintenance Cost: " + car.calculateMaintenaceCost(distance));
+                System.out.println("Maintenance Cost: " + car.calculateMaintenanceCost(distance));
                 System.out.println("Fuel Efficiency: " + car.calculateFuelEfficiency(distance, fuelPrice));
-                System.out.println("Engine Start: " + car.startEngine());
+                System.out.println("Engine Start: ");
+                car.startEngine();
                 System.out.println("-----------------------------");
                 carFound = true;
 			}
@@ -117,7 +116,7 @@ public class VehicleManager {
 		}
 	}
 	
-	public void displayAllTruckInformation() {
+	public void displayAllTruckInformation(double distance, double fuelPrice) {
 		boolean truckFound = false;
 		
 		System.out.println("Truck information: ");
@@ -125,9 +124,10 @@ public class VehicleManager {
 			if(vehicle instanceof Truck) {
 				Truck truck = (Truck) vehicle;
 				System.out.println(truck.toString());
-                System.out.println("Maintenance Cost: " + truck.calculateMaintenaceCost(distance));
+                System.out.println("Maintenance Cost: " + truck.calculateMaintenanceCost(distance));
                 System.out.println("Fuel Efficiency: " + truck.calculateFuelEfficiency(distance, fuelPrice));
-                System.out.println("Engine Start: " + truck.startEngine());
+                System.out.println("Engine Start: ");
+                truck.startEngine();
                 System.out.println("-----------------------------");
                 truckFound = true;
 			}
@@ -138,7 +138,7 @@ public class VehicleManager {
 		}
 	}
 	
-	public void displayAllSUVInformation() {
+	public void displayAllSUVInformation(double distance, double fuelPrice) {
 		boolean SUVFound = false;
 		
 		System.out.println("SUV information: ");
@@ -146,9 +146,10 @@ public class VehicleManager {
 			if(vehicle instanceof SUV) {
 				SUV suv = (SUV) vehicle;
 				System.out.println(suv.toString());
-                System.out.println("Maintenance Cost: " + suv.calculateMaintenaceCost(distance));
+                System.out.println("Maintenance Cost: " + suv.calculateMaintenanceCost(distance));
                 System.out.println("Fuel Efficiency: " + suv.calculateFuelEfficiency(distance, fuelPrice));
-                System.out.println("Engine Start: " + suv.startEngine());
+                System.out.println("Engine Start: ");
+                suv.startEngine();
                 System.out.println("-----------------------------");
                 SUVFound = true;
 			}
@@ -159,7 +160,7 @@ public class VehicleManager {
 		}
 	}
 	
-	public void displayAllMotorBikeInformation() {
+	public void displayAllMotorBikeInformation(double distance, double fuelPrice) {
 		boolean motorBikeFound = false;
 		
 		System.out.println("Motor Bike information: ");
@@ -167,9 +168,10 @@ public class VehicleManager {
 			if(vehicle instanceof MotorBike) {
 				MotorBike motorBike = (MotorBike) vehicle;
 				System.out.println(motorBike.toString());
-                System.out.println("Maintenance Cost: " + motorBike.calculateMaintenaceCost(distance));
+                System.out.println("Maintenance Cost: " + motorBike.calculateMaintenanceCost(distance));
                 System.out.println("Fuel Efficiency: " + motorBike.calculateFuelEfficiency(distance, fuelPrice));
-                System.out.println("Engine Start: " + motorBike.startEngine());
+                System.out.println("Engine Start: ");
+                motorBike.startEngine();
                 System.out.println("-----------------------------");
                 motorBikeFound = true;
 			}
@@ -180,13 +182,14 @@ public class VehicleManager {
 		}
 	}
 	
-	public void displayVehicleInformation(Vehicle v) {
+	public void displayVehicleInformation(Vehicle v, double distance, double fuelPrice) {
 		if (v != null) {
             System.out.println("Vehicle Information:");
             System.out.println(v.toString());
-            System.out.println("Maintenance Cost: " + v.calculateMaintenaceCost(distance));
+            System.out.println("Maintenance Cost: " + v.calculateMaintenanceCost(distance));
             System.out.println("Fuel Efficiency: " + v.calculateFuelEfficiency(distance, fuelPrice));
-            System.out.println("Engine Start: " + v.startEngine());
+            System.out.println("Engine Start: ");
+            v.startEngine();
             System.out.println("-----------------------------");
         } else {
             System.out.println("Vehicle not found.");
@@ -237,7 +240,7 @@ public class VehicleManager {
     		for (Vehicle vehicle : vehicleList) {
     			String vehicleLine = String.format("%s,%s,%s,%d,%d,%s,%s,%d,%.1f,%d,%d,%s",
     					vehicle.getClass().getSimpleName(),
-    					vehicle.getModel(),
+    					vehicle.getBrand(),
     					vehicle.getMake(),
     					vehicle.getModelYear(),
     					vehicle.getPrice(),
@@ -280,7 +283,7 @@ public class VehicleManager {
         double highestCost = Double.MIN_VALUE;
 
         for (Vehicle vehicle : vehicleList) {
-            double maintenanceCost = vehicle.calculateMaintenaceCost(distance);
+            double maintenanceCost = vehicle.calculateMaintenanceCost(distance);
             if (maintenanceCost > highestCost) {
                 highestCost = maintenanceCost;
                 vehicleWithHighestCost = vehicle;
@@ -295,7 +298,7 @@ public class VehicleManager {
         double lowestCost = Double.MAX_VALUE;
 
         for (Vehicle vehicle : vehicleList) {
-            double maintenanceCost = vehicle.calculateMaintenaceCost(distance);
+            double maintenanceCost = vehicle.calculateMaintenanceCost(distance);
             if (maintenanceCost < lowestCost) {
                 lowestCost = maintenanceCost;
                 vehicleWithLowestCost = vehicle;
