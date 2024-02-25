@@ -55,10 +55,64 @@ public abstract class Vehicle {
                 ", Gas Tank Capacity: " + gasTankCapacity + ", Start Type: " + startType;
     }
     
+    
+    //Abstract methods.
     public abstract double calculateMaintenanceCost(double distance);
 
     public abstract double calculateFuelEfficiency(double distance, double fuelPrice);
 
     public abstract void startEngine();
+    
+    //Get and Set Methods
+    
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getMake() {
+        return make;
+    }
+
+    public long getModelYear() {
+        return modelYear;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public VehicleColor getColor() {
+        return color;
+    }
+
+    public FuelType getFuelType() {
+        return fuelType;
+    }
+
+    public double getMileage() {
+        return mileage;
+    }
+
+    public double getMass() {
+        return mass;
+    }
+
+    public int getCylinders() {
+        return cylinders;
+    }
+
+    public StartMechanism getStartType() {
+        return startType;
+    }
+
+    public double getGasTankCapacity() {
+        return gasTankCapacity;
+    }
+
+    public String getType() {
+        return type;
+    }
+    
+    
 
 }

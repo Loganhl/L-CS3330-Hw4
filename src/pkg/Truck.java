@@ -26,4 +26,6 @@ public class Truck extends Vehicle {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
 }
