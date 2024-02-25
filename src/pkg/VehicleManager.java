@@ -62,8 +62,8 @@ public class VehicleManager {
                 double mileage = Double.parseDouble(parts[7]);
                 double mass = Double.parseDouble(parts[8]);
                 int cylinders = Integer.parseInt(parts[9]);
-                StartMechanism startType = StartMechanism.valueOf(parts[10].toUpperCase());
-                double gasTankCapacity = Double.parseDouble(parts[11]); // Assuming it's part of input
+                double gasTankCapacity = Double.parseDouble(parts[10]);
+                StartMechanism startType = StartMechanism.valueOf(parts[11].toUpperCase());
 
 
                 switch (type) {
