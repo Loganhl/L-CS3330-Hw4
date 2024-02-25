@@ -65,6 +65,7 @@ public abstract class Vehicle {
     
     //Get and Set Methods
     
+    
     public String getBrand() {
         return brand;
     }
