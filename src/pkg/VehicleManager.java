@@ -53,7 +53,7 @@ public class VehicleManager {
          
                 
                 String type = parts[0];
-                String model = parts[1];
+                String brand = parts[1];
                 String make = parts[2];
                 long modelYear = Long.parseLong(parts[3]);
                 double price = Double.parseDouble(parts[4]);
@@ -70,16 +70,16 @@ public class VehicleManager {
 
                 switch (type) {
                     case "SUV":
-                        vehicleList.add(new SUV(type, model, make, modelYear, price, color, fuelType, mileage, mass, cylinders, startType, gasTankCapacity));
+                        vehicleList.add(new SUV(type, brand, make, modelYear, price, color, fuelType, mileage, mass, cylinders, startType, gasTankCapacity));
                         break;
                     case "Truck":
-                    	vehicleList.add(new Truck(type, model, make, modelYear, price, color, fuelType, mileage, mass, cylinders, startType, gasTankCapacity));
+                    	vehicleList.add(new Truck(type, brand, make, modelYear, price, color, fuelType, mileage, mass, cylinders, startType, gasTankCapacity));
                         break;
                     case "Car":
-                    	vehicleList.add(new Car(type, model, make, modelYear, price, color, fuelType, mileage, mass, cylinders, startType, gasTankCapacity));
+                    	vehicleList.add(new Car(type, brand, make, modelYear, price, color, fuelType, mileage, mass, cylinders, startType, gasTankCapacity));
                         break;
                     case "MotorBike":
-                    	vehicleList.add(new MotorBike(type, model, make, modelYear, price, color, fuelType, mileage, mass, cylinders, startType, gasTankCapacity));
+                    	vehicleList.add(new MotorBike(type, brand, make, modelYear, price, color, fuelType, mileage, mass, cylinders, startType, gasTankCapacity));
                         break;
                 }
 
@@ -96,5 +96,61 @@ public class VehicleManager {
 		
 	}
             
-            
+    public boolean removeVehicle(Vehicle vehicle) {
+    	if (vehicleList.contains(vehicle)) {
+    		vehicleList.remove(vehicle);
+    		System.out.println("\nVehicle removed from the inventory: " );
+    		return true;
+    	} else {
+    		System.out.println("\nVehicle not found. Removal failed. ");
+    		return false;
+    	}
+    	
+    }
+    
+    public boolean addVehicle(Vehicle vehicle) {
+    	if (vehicleList.contains(vehicle)) {
+    		System.out.println("\nVehicle arleady exists in inventory. Addition failed.");
+    		return false;
+    	}
+    	
+    	vehicleList.add(vehicle);
+    	
+    	System.out.println("\nVehicle added to the inventory: ");
+    	return true;
+    }
+    
+    public boolean saveVehicleList() {
+    	try {
+    		FileWriter writer = new FileWriter(vehicleFilePath);
+    		
+    		writer.write("Type,Model,Make,ModelYear,Price,Color,FuelType,Mileage,Mass,Cylinders,GasTankCapacity,StartType\n");
+    		
+    		for (Vehicle vehicle : vehicleList) {
+    			String vehicleLine = String.format("%s,%s,%s,%d,%d,%s,%s,%d,%.1f,%d,%d,%s",
+    					vehicle.getClass().getSimpleName(),
+    					vehicle.getModel(),
+    					vehicle.getMake(),
+    					vehicle.getModelYear(),
+    					vehicle.getPrice(),
+    					vehicle.getColor().toString(),
+    					vehicle.getFuelType().toString(),
+    					vehicle.getMileage(),
+    					vehicle.getMass(),
+    					vehicle.getCylinders(),
+    					vehicle.getGasTankCapacity(),
+    					vehicle.getStartType().toString());
+    			
+    					
+        				writer.write(vehicleLine);
+    		}
+        	writer.close();
+        	return true;
+        	
+    	} catch (IOException e) {
+    		System.out.println("Error saving inventory to file: "+ e.getMessage());
+    		return false;
+    	}
+    }
+	
 }
