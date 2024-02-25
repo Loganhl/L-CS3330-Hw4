@@ -12,7 +12,7 @@ public class VehicleManager {
 	private ArrayList<Vehicle> vehicleList;
 
 	
-	public boolean initializeStock() {
+	public boolean initializeVehicle() {
 
 		try {
 			//Sets the file and count variable.
@@ -44,7 +44,7 @@ public class VehicleManager {
                 scanner.nextLine(); 
             }
             
-            vehicle = new ArrayList<Vehicle>();
+            vehicleList = new ArrayList<Vehicle>();
             
             //Adding values to the object.
             for (int i = 0; i < count; i++) {
