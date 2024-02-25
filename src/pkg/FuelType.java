@@ -1,5 +1,8 @@
 package pkg;
 
-public class FuelType {
-
+public enum FuelType {
+    GASOLINE,
+    DIESEL,
+    ELECTRIC,
+    HYBRID
 }

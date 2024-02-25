@@ -1,5 +1,8 @@
 package pkg;
 
-public class StartMechanism {
 
+public enum StartMechanism {
+	KEYSTART,
+	PUSHSTART,
+	KICKSTART
 }

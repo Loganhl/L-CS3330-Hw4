@@ -12,8 +12,11 @@ public abstract class Vehicle {
     protected int cylinders;
     protected double gasTankCapacity;
     protected StartMechanism startType;
+    protected String type;
     
-    public Vehicle(String brand, String make, long modelYear, double price, VehicleColor color, FuelType fuelType, double mileage, double mass, int cylinders, StartMechanism startType, double gasTankCapacity) {
+    
+    
+    public Vehicle(String type, String brand, String make, long modelYear, double price, VehicleColor color, FuelType fuelType, double mileage, double mass, int cylinders, StartMechanism startType, double gasTankCapacity) {
         this.brand = brand;
         this.make = make;
         this.modelYear = modelYear;
@@ -25,8 +28,10 @@ public abstract class Vehicle {
         this.cylinders = cylinders;
         this.startType = startType;
         this.gasTankCapacity = gasTankCapacity;
+        this.type = type;
     }
     
+    //Copy Constructor
     public Vehicle(Vehicle other) {
         this.brand = other.brand;
         this.make = other.make;
@@ -39,6 +44,7 @@ public abstract class Vehicle {
         this.cylinders = other.cylinders;
         this.startType = other.startType;
         this.gasTankCapacity = other.gasTankCapacity;
+        this.type = other.type;
     }
     
     

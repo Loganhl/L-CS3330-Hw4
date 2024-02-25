@@ -1,5 +1,11 @@
 package pkg;
 
-public class VehicleColor {
-
+public enum VehicleColor {
+    BLACK,
+    RED,
+    BLUE,
+    BROWN,
+    WHITE,
+    YELLOW,
+    GRAY
 }
