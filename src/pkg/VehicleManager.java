@@ -9,7 +9,7 @@ import java.io.IOException;
 public class VehicleManager {
 
 	private String vehicleFilePath = "src/vehicleList.csv";
-	private ArrayList<Vehicle> vehicleList;
+	public ArrayList<Vehicle> vehicleList;
 
 	
 	public boolean initializeVehicle() {

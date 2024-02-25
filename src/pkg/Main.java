@@ -11,7 +11,7 @@ public class Main {
 	 
 	 if(fileReadStatus) {
 		 // Display all vehicle information.
-		 vehicleManager.displayAllVehicleInformation(null);
+		 vehicleManager.displayAllVehicleInformation(vehicleManager.vehicleList);
 	 
 		 // Display all car information.
 		 vehicleManager.displayAllCarInformation(100, 3);
