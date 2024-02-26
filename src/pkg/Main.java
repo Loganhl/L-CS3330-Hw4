@@ -14,10 +14,10 @@ public class Main {
 		 vehicleManager.displayAllVehicleInformation(vehicleManager.vehicleList);
 	 
 		 // Display all car information.
-		 vehicleManager.displayAllCarInformation(100, 3);
+		 vehicleManager.displayAllCarInformation(300, 3.25);
 	 
 		 // Display all motorbike information.
-		 vehicleManager.displayAllMotorBikeInformation(100, 3);
+		 vehicleManager.displayAllMotorBikeInformation(300, 3.25);
 	 
 	 	}
 	 }
